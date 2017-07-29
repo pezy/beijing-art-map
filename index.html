@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>上海艺术地图</title>
+<title>北京艺术地图</title>
 <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
 <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
 <style type="text/css">
@@ -72,8 +72,8 @@ function addMarker(){
 
 function mapInit(){
     mapObj = new AMap.Map("iCenter", {
-        center: new AMap.LngLat(121.473267,31.222715),
-        level:  13
+        center: new AMap.LngLat(116.39,39.9),
+        level:  12
     });
     // mapObj.plugin(["AMap.ToolBar"],function(){        
     //     toolBar = new AMap.ToolBar();  
@@ -86,10 +86,10 @@ function mapInit(){
     // https://github.com/unixcrh/DOUBANTONGCHENG/blob/master/DouBanTongCheng/ContentVC.m
     // https://developers.douban.com/wiki/?title=event_v2
     let doubanEvents = [
-        "https://api.douban.com/v2/event/list?loc=shanghai&type=music&max-results=30&callback=?",
-        "https://api.douban.com/v2/event/list?loc=shanghai&type=drama&max-results=30&callback=?",
-        "https://api.douban.com/v2/event/list?loc=shanghai&type=film&max-results=30&callback=?",
-        "https://api.douban.com/v2/event/list?loc=shanghai&type=exhibition&max-results=30&callback=?",
+        "https://api.douban.com/v2/event/list?loc=beijing&type=music&max-results=30&callback=?",
+        "https://api.douban.com/v2/event/list?loc=beijing&type=drama&max-results=30&callback=?",
+        "https://api.douban.com/v2/event/list?loc=beijing&type=film&max-results=30&callback=?",
+        "https://api.douban.com/v2/event/list?loc=beijing&type=exhibition&max-results=30&callback=?",
     ];
     // http://fontawesome.io/icons/
     let doubanIcons = [
@@ -114,7 +114,7 @@ function mapInit(){
                 //response json are now in the json variable
                 // console.log(json);
                 json.events.reverse().forEach(function(ev, j) {
-                    ev.title = ev.title.replace(/上海(\s+|市|站)/g, '')
+                    ev.title = ev.title.replace(/北京(\s+|市|站)/g, '')
                     let geo = ev.geo.split(' ');
                     let marker = new AMap.Marker({
                         map:        mapObj,
@@ -125,7 +125,7 @@ function mapInit(){
                         //             }) : null,
                         // label:      "vvvvvv",
                         title:      ev.title + '\n' + 
-                                    ev.address.replace(/上海(\s+|市|站)/g, '') + '\n' + 
+                                    ev.address.replace(/北京(\s+|市|站)/g, '') + '\n' + 
                                     ev.begin_time.substring(5, ev.begin_time.length - 3) + ' ~ ' + 
                                     ev.end_time.substring(5, ev.end_time.length - 3)
                     });

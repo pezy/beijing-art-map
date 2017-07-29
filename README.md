@@ -1,4 +1,4 @@
-shanghai-art-map
+beijing-art-map
 ================
 
-上海艺术地图
+北京艺术地图
